@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFROblox - MetaCampus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: rgba(20, 20, 20, 0.85);
+            --primary-green: #00ff66;
+            --dark-green: #003311;
+            --text-color: #e0e0e0;
+            --font-pixel: 'Press Start 2P', cursive;
+            --font-tech: 'Share Tech Mono', monospace;
+            --glow: 0 0 15px rgba(0, 255, 102, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-tech);
+            font-size: 18px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fundo sutil simulando linhas de circuito de forma abstrata */
+            background-image: 
+                linear-gradient(var(--dark-green) 1px, transparent 1px),
+                linear-gradient(90deg, var(--dark-green) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-attachment: fixed; /* Mantém o grid estático ao rolar a página */
+        }
+
+        /* Moldura brilhante estilo Cyberpunk */
+        .neon-border {
+            border: 1px solid var(--primary-green);
+            box-shadow: var(--glow);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .neon-border:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.6);
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, rgba(13,13,13,1) 0%, rgba(13,13,13,0.7) 100%);
+            border-bottom: 2px solid var(--primary-green);
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .logo-container {
+            font-family: var(--font-pixel);
+            font-size: 2.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--primary-green), 0 0 20px var(--primary-green);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        .logo-container span {
+            color: var(--primary-green);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0.8;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Organiza o espaçamento entre todas as seções */
+        }
+
+        /* Seções Globais */
+        section {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        h2 {
+            font-family: var(--font-pixel);
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: ">";
+            color: var(--primary-green);
+            animation: blink 1s infinite;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #c5c5c5;
+            text-align: justify;
+        }
+
+        /* ----- NOVA SEÇÃO: QR Code e Link ----- */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px dashed var(--primary-green);
+            background-color: rgba(0, 51, 17, 0.3);
+        }
+
+        .qr-code-box {
+            margin: 20px 0;
+            padding: 15px;
+            background: #ffffff; /* Fundo branco para garantir a leitura do código pelas câmeras */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        }
+
+        .qr-code-box img {
+            display: block;
+            width: 180px;
+            height: 180px;
+        }
+
+        .access-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+            text-decoration: none;
+            font-family: var(--font-pixel);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .access-link:hover {
+            background-color: var(--primary-green);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--primary-green);
+        }
+
+        /* Bloco de "Em Breve" customizável */
+        .placeholder-section {
+            background-color: rgba(0, 255, 102, 0.02);
+            border: 1px dashed #005522;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .placeholder-section:hover {
+            border-color: var(--primary-green);
+            background-color: rgba(0, 255, 102, 0.05);
+        }
+
+        .placeholder-title {
+            font-family: var(--font-pixel);
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .blink-text {
+            color: var(--primary-green);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Rodapé / Slogan */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(transparent, #050505);
+            border-top: 1px solid var(--dark-green);
+            margin-top: 60px;
+        }
+
+        .slogan {
+            font-family: var(--font-tech);
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            max-width: 600px;
+            margin: 0 auto 15px auto;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .institucional {
+            font-size: 0.9rem;
+            color: #666;
+            letter-spacing: 1.5px;
+        }
+
+        /* Animações */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 10px var(--primary-green), 0 0 20px var(--primary-green); }
+            50% { text-shadow: 0 0 15px var(--primary-green), 0 0 30px var(--primary-green); }
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .logo-container { font-size: 1.8rem; }
+            .subtitle { font-size: 0.9rem; }
+            body { font-size: 16px; }
+            .slogan { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">IFRO<span>BLOX</span></div>
+        <div class="subtitle">MetaCampus &bull; Informática</div>
+    </header>
+
+    <main>
+        
+        <section class="about-section neon-border">
+            <h2>PROJETO_CONCEITO</h2>
+            <p>O MetaCampus transforma o campus do IFRO em uma experiência digital interativa dentro do Roblox. Ao invés de apenas receber informações em documentos ou apresentações tradicionais, o aluno aprende explorando.</p>
+            <p>Dentro do ambiente virtual, os estudantes podem conhecer espaços, entender a rotina escolar e se familiarizar com a instituição de forma mais leve e dinâmica. Tudo isso utilizando uma plataforma já popular entre jovens.</p>
+        </section>
+
+        <section class="qr-section neon-border">
+            <h2>ACESSO_SERVIDOR</h2>
+            <p>Escaneie o QR Code abaixo com seu smartphone ou clique no link direto para carregar o mapa do MetaCampus no Roblox.</p>
+            
+            <div class="qr-code-box">
+                <img src="/IFROblox/img/meu_qrcode.png" alt="QR Code de Acesso">
+            </div>
+
+            <a href="https://www.roblox.com/share?code=1590c4d099c6ed47936fdf077d63ec11&type=ExperienceDetails&stamp=1781185409993" target="_blank" class="access-link">
+                [ INICIAR_CONEXÃO ]
+            </a>
+        </section>
+
+        <section class="placeholder-section">
+            <div class="placeholder-title">// Atualizações do Sistema</div>
+            <p class="blink-text">[ AGUARDANDO DADOS... EM BREVE MAIS INFORMAÇÕES AQUI ]</p>
+            <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Área reservada para galeria de fotos do MetaCampus, progresso do desenvolvimento e download de manuais.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="slogan">"Reimaginando a forma como o campus se conecta"</div>
+        <div class="institucional">INSTITUTO FEDERAL DE RONDÔNIA &bull; CAMPUS ARIQUEMES</div>
+    </footer>
+
+</body>
+</html>
