@@ -30,12 +30,6 @@
             font-size: 18px;
             line-height: 1.6;
             overflow-x: hidden;
-            /* Fundo sutil simulando linhas de circuito de forma abstrata */
-            background-image: 
-                linear-gradient(var(--dark-green) 1px, transparent 1px),
-                linear-gradient(90deg, var(--dark-green) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-attachment: fixed; /* Mantém o grid estático ao rolar a página */
         }
 
         /* Moldura brilhante estilo Cyberpunk */
@@ -122,49 +116,46 @@
             text-align: justify;
         }
 
-        /* ----- NOVA SEÇÃO: QR Code e Link ----- */
-        .qr-section {
+        /* ----- SEÇÃO: Acesso e Link ----- */
+        .access-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            border: 2px dashed var(--primary-green);
+            border: 2px solid var(--primary-green);
             background-color: rgba(0, 51, 17, 0.3);
         }
 
-        .qr-code-box {
-            margin: 20px 0;
-            padding: 15px;
-            background: #ffffff; /* Fundo branco para garantir a leitura do código pelas câmeras */
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
-        }
-
-        .qr-code-box img {
-            display: block;
-            width: 180px;
-            height: 180px;
+        .link-notice {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-style: italic;
+            text-align: center;
         }
 
         .access-link {
             display: inline-block;
-            margin-top: 15px;
-            padding: 15px 30px;
-            background-color: transparent;
-            border: 1px solid var(--primary-green);
-            color: var(--primary-green);
+            margin-top: 10px;
+            padding: 18px 35px;
+            background-color: var(--primary-green);
+            color: var(--bg-color);
+            border-radius: 5px;
             text-decoration: none;
             font-family: var(--font-pixel);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: bold;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
             cursor: pointer;
         }
 
         .access-link:hover {
-            background-color: var(--primary-green);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px var(--primary-green);
+            background-color: #33ff88;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 255, 102, 0.7);
         }
 
         /* Bloco de "Em Breve" customizável */
@@ -237,6 +228,7 @@
             .subtitle { font-size: 0.9rem; }
             body { font-size: 16px; }
             .slogan { font-size: 1.1rem; }
+            .access-link { padding: 15px 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -255,16 +247,14 @@
             <p>Dentro do ambiente virtual, os estudantes podem conhecer espaços, entender a rotina escolar e se familiarizar com a instituição de forma mais leve e dinâmica. Tudo isso utilizando uma plataforma já popular entre jovens.</p>
         </section>
 
-        <section class="qr-section neon-border">
+        <section class="access-section neon-border">
             <h2>ACESSO_SERVIDOR</h2>
-            <p>Escaneie o QR Code abaixo com seu smartphone ou clique no link direto para carregar o mapa do MetaCampus no Roblox.</p>
+            <p>O ambiente virtual do MetaCampus já está pronto para ser explorado por você.</p>
             
-            <div class="qr-code-box">
-                <img src="/IFROblox/img/meu_qrcode.png" alt="QR Code de Acesso">
-            </div>
-
+            <p class="link-notice">// Aviso: O botão abaixo abrirá o site ou aplicativo oficial do Roblox e redirecionará você para o nosso mapa.</p>
+            
             <a href="https://www.roblox.com/share?code=1590c4d099c6ed47936fdf077d63ec11&type=ExperienceDetails&stamp=1781185409993" target="_blank" class="access-link">
-                [ INICIAR_CONEXÃO ]
+                [ ACESSAR METACAMPUS ]
             </a>
         </section>
 
