@@ -311,14 +311,13 @@
             max-width: 55ch;
         }
 
-        /* Rodapé / Slogan */
+        /* ----- NOVO ESTILO DO RODAPÉ ----- */
         footer {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            gap: 0.75rem;
+            gap: 1.5rem;
             padding: clamp(2.5rem, 6vw, 4rem) var(--container-padding);
             background: linear-gradient(transparent, #050505);
             border-top: 1px solid var(--dark-green);
@@ -332,16 +331,81 @@
             color: #ffffff;
             letter-spacing: clamp(1px, 0.5vw, 2px);
             text-transform: uppercase;
+            text-align: center;
             max-width: min(600px, 90vw);
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
             line-height: 1.5;
         }
 
-        .institucional {
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
-            color: #666;
-            letter-spacing: clamp(0.5px, 0.3vw, 1.5px);
-            max-width: min(500px, 90vw);
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(2rem, 5vw, 4rem);
+            width: 100%;
+            max-width: 900px;
+            padding-top: 1.5rem;
+            border-top: 1px dashed rgba(0, 255, 102, 0.2);
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1 1 300px;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-pixel);
+            font-size: 0.75rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            color: #a0a0a0;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            text-align: center;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-contact-list li {
+            color: #a0a0a0;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .footer-contact-list a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color var(--transition-fast), text-shadow var(--transition-fast);
+        }
+
+        .footer-contact-list a:hover {
+            color: var(--primary-green);
+            text-shadow: var(--glow);
+        }
+
+        .footer-contact-list span {
+            color: var(--dark-green);
+            font-weight: bold;
+            margin-right: 0.25rem;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            color: #444;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* Animações */
@@ -544,7 +608,7 @@
 
     <header>
         <div class="logo-container">IFRO<span>BLOX</span></div>
-        <div class="subtitle">MetaCampus &bull; Informática</div>
+        <div class="subtitle">MetaCampus &bull; Informática / Agro / Alimentos</div>
     </header>
 
     <main>
@@ -576,9 +640,28 @@
 
     </main>
 
-    <footer>
+<footer>
         <div class="slogan">"Reimaginando a forma como o campus se conecta"</div>
-        <div class="institucional">INSTITUTO FEDERAL DE RONDÔNIA &bull; CAMPUS ARIQUEMES</div>
+        
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>// INSTITUCIONAL</h3>
+                <p>INSTITUTO FEDERAL DE RONDÔNIA</p>
+                <p>CAMPUS ARIQUEMES</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>// CONTATO</h3>
+                <ul class="footer-contact-list">
+                    <li><span>EMAIL:</span> <a href="mailto:natafredericosangalletti@gmail.com">[ natafredericosangalletti@gmail.com ]</a></li>
+                    <li><span>TELEFONE:</span> <a href="tel:+5569992241711">[ (69) 99224-1711 ]</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>Todos os Direitos Reservados &copy; 2026 IFROblox - MetaCampus</p>
+        </div>
     </footer>
 
 </body>
